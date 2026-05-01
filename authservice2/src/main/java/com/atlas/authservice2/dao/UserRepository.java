@@ -1,5 +1,14 @@
 package com.atlas.authservice2.dao;
 
-public interface UserRepository {
+import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
+import com.atlas.authservice2.dao.model.User;
+
+@Repository
+public interface UserRepository extends PersonRepository<User> {
+
+	Optional<User> findByUserName(String username);
 
 }
