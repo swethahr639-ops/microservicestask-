@@ -10,5 +10,9 @@ import com.atlas.authservice2.dao.model.User;
 public interface UserRepository extends PersonRepository<User> {
 
 	Optional<User> findByUserName(String username);
+	boolean existsByUserName(String username);
+	boolean existsByEmailid(String emailid);
+	
+	
 
 }

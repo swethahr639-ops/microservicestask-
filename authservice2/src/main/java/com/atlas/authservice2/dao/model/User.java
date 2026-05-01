@@ -19,12 +19,30 @@ public class User extends Person implements UserDetails {
 
 	private String username;
 	private String password;
+
 	private String token;
 	private String otp;
-	
+	private String emailid;
+	private Role role;
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public String getEmailid() {
+		return emailid;
+	}
+
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
+	}
+
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	
 
 	public String getUsername() {
 		return username;
@@ -60,7 +78,7 @@ public class User extends Person implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
+
 		return Collections.singleton(new SimpleGrantedAuthority(this.role.name()));
 	}
 
